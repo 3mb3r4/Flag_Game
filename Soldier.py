@@ -51,4 +51,3 @@ def movement(key_pressed, player_index, player_png):
             for pos in player_index:
                 pos[1] -= 1
 
-    # handles movements

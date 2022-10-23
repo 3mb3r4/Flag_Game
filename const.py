@@ -17,3 +17,18 @@ FlAG_PNG = pygame.image.load("soldier.png")
 FLAG_WIDTH = FlAG_PNG.get_width()
 FLAG_HEIGHT = FlAG_PNG.get_height()
 FLAG_START_POS = (WINDOW_WIDTH - FLAG_WIDTH, WINDOW_HEIGHT - FLAG_HEIGHT)
+
+BUSH_PNG = pygame.image.load("grass.png")
+BUSH_WIDTH = BUSH_PNG.get_width()
+BUSH_HEIGHT = BUSH_PNG.get_height()
+
+MINE_PNG = pygame.image.load("mine.png")
+MINE_WIDTH = MINE_PNG.get_width()
+MINE_HEIGHT = MINE_PNG.get_height()
+
+RUNNING_STATE = 0
+LOSE_STATE = 1
+WIN_STATE = 2
+ENTER_STATE = 3
+
+SECOND = 1000
