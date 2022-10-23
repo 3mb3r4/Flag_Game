@@ -28,10 +28,10 @@ def player_touches_mine(player_legs_indexes, mines_indexes):
     return parts_touching_mine >= 2
 
 
-def movement(key_pressed, player_index):
+def movement(key_pressed, player_index, player_png):
     upper_left_corner = Screen.upper_left_soldier_coordinates()
-    player_width = Screen.get_player_width()
-    player_height = Screen.get_player_height()
+    player_width = player_png.get_width()
+    player_height = player_png.get_height()
 
     if upper_left_corner[0] != 0 and upper_left_corner[0] != const.WINDOW_WIDTH - player_width and \
             upper_left_corner[1] != 0 and upper_left_corner[1] != const.WINDOW_HEIGHT - player_height:

@@ -15,11 +15,11 @@ def main():
     pygame.init()
     MineField.make_empty_field()
     MineField.create_random_mines()
+    game_state["mines_pos"] = MineField.mine_indexes_list()
+    player_png, player_pos = Soldier.player_pos_start()
 
     while game_state["run"]:
         handle_user_events()
-
-
 
         # check player touches flag
         player_index = Screen.get_player_index()
@@ -29,10 +29,9 @@ def main():
 
         # check player touched mine
         legs_index = Screen.get_legs_index()
-        if Soldier.player_touches_mine(legs_index, MineField.mine_indexes_list()):
+        if Soldier.player_touches_mine(legs_index, game_state["mines_pos"]):
             # game lose
             pass
-
 
         # update variables and screen
         # draw updated screen
@@ -55,7 +54,3 @@ def handle_user_events():
                 # pressed enter
                 # show the mines for 1 sec
                 pass
-
-
-
-
