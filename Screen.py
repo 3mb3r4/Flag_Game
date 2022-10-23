@@ -8,8 +8,16 @@ background_colour = (0, 128, 0)
 screen.fill(background_colour)
 
 def draw_random_bushes():
-    x = random.randint(1, 50)
-    y = random.randint(1, 25)
+    random_bushes_indexes = []
+    for i in range(20):
+        x = random.randint(1, 50)
+        y = random.randint(1, 25)
+        index = (x, y)
+        random_bushes_indexes.append(index)
+    for bush in random_bushes_indexes:
+        x, y = bush
+        screen.blit('grass.png', (x, y))
+
 
 def draw_mines():
     mine_img = pygame.image.load('mine.png')
