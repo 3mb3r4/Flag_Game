@@ -19,25 +19,27 @@ def main():
     MineField.make_empty_field()
     MineField.create_random_mines()
     game["mines_pos"] = MineField.mine_indexes_list()
-    player_png, player_pos = Soldier.player_pos_start()
+    player_png, player_start_pos = Soldier.player_pos_start()
 
     while game["run"]:
         handle_user_events(player_png)
+        player_indexes = Soldier.player_pos_in_matrix_list(player_start_pos)
 
+        body_indexes = player_indexes[:6]
         # check player touches flag
-        player_index = Screen.get_player_index()
-        if Soldier.player_touches_flag(player_index, game["flag_indexes"]):
+        if Soldier.player_touches_flag(body_indexes, game["flag_indexes"]):
             # game win
             game["game_state"] = const.WIN_STATE
 
         # check player touched mine
-        legs_index = Screen.get_legs_index()
+        legs_index = player_indexes[6:]
         if Soldier.player_touches_mine(legs_index, game["mines_pos"]):
             # game lose
             game["game_state"] = const.LOSE_STATE
 
         # update variables and screen
         # draw updated screen
+        Screen.draw_game(game["game_state"])
 
 
 def handle_user_events(player_png):
@@ -49,9 +51,13 @@ def handle_user_events(player_png):
             # means a key was pressed
             # make sure solider isn't out of bounds and then initiate movements
             key_pressed = event.key  # get key type
-            player_pos = Screen.get_player_index
+            player_pos = game["player_indexes"]
             if key_pressed in game["movements_keys"]:
                 Soldier.movement(key_pressed, player_pos, player_png)
 
             elif event.key == pygame.K_RETURN:
                 game["game_state"] = const.ENTER_STATE
+
+
+if __name__ == "__main__":
+    main()

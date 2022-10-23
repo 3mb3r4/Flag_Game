@@ -3,8 +3,6 @@ import Screen
 import const
 
 
-# TODO: func to calculate legs and upper body positions
-
 def player_pos_start():
     player_png = pygame.image.load("C:\\Users\\jbt\\PycharmProjects\\Flag_Game\\soldier.png")
     pos = (0, 0)
@@ -27,8 +25,8 @@ def player_touches_mine(player_legs_indexes, mines_indexes):
     return parts_touching_mine >= 2
 
 
-def movement(key_pressed, player_index, player_png):
-    upper_left_corner = Screen.get_upper_left_soldier_coordinates()
+def movement(key_pressed, player_indexes, player_png):
+    upper_left_corner = Screen.conversion_to_coordinates(player_indexes[0])
     player_width = player_png.get_width()
     player_height = player_png.get_height()
 
@@ -36,27 +34,29 @@ def movement(key_pressed, player_index, player_png):
             upper_left_corner[1] != 0 and upper_left_corner[1] != const.WINDOW_HEIGHT - player_height:
         # then player won't move put of bounds
         if key_pressed == pygame.K_UP:
-            for pos in player_index:
+            for pos in player_indexes:
                 pos[0] += 1
 
         elif key_pressed == pygame.K_DOWN:
-            for pos in player_index:
+            for pos in player_indexes:
                 pos[0] -= 1
 
         elif key_pressed == pygame.K_RIGHT:
-            for pos in player_index:
+            for pos in player_indexes:
                 pos[1] += 1
 
         else:
-            for pos in player_index:
+            for pos in player_indexes:
                 pos[1] -= 1
 
 
 def player_pos_in_matrix_list(start_pos):
     player_pos_list = [start_pos]
-    for i in range(0, 2):
+    for i in range(0, 4):
         x = start_pos[0] + i
-        for j in range(0, 4):
+        for j in range(0, 2):
             y = start_pos[1] + j
+            if (x, y) == start_pos:
+                continue
             player_pos_list.append((x, y))
     return player_pos_list

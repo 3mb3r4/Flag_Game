@@ -20,8 +20,8 @@ def make_empty_field():
 def create_random_mines():
     num_of_mines = 0
     while num_of_mines < 20:
-        i = random.randint(0, const.NUM_SQUARES_HEIGHT)
-        j = random.randint(0, const.NUM_SQUARES_WIDTH)
+        i = random.randint(0, const.NUM_SQUARES_HEIGHT - 1)
+        j = random.randint(0, const.NUM_SQUARES_WIDTH - 1)
         if mine_grid[i][j] == const.EMPTY_VALUE:
             mine_grid[i][j] = const.MINE_VALUE
             num_of_mines += 1
@@ -41,3 +41,4 @@ def mine_indexes_list():
             if mine_grid[i][j] == const.MINE_VALUE:
                 pos = (j, i)
                 mines_indexes_list.append(pos)
+    return mines_indexes_list
