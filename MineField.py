@@ -34,4 +34,11 @@ def print_mine_matrix():
         print()
 
 
-#
+def mine_indexes_list():
+    mines_indexes_list = []
+    for i in range(len(mine_grid)):
+        for j in range(len(mine_grid[i])):
+            if mine_grid[i][j] == const.MINE_VALUE:
+                pos = (j, i)
+                mines_indexes_list.append(pos)
+                

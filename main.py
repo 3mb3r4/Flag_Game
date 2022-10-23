@@ -11,9 +11,22 @@ game_state = {"run": True,
 
 def main():
     pygame.init()
+    MineField.make_empty_field()
+    MineField.create_random_mines()
 
     while game_state["run"]:
         handle_user_events()
+
+        # check player touches flag
+        player_index = Screen.get_player_index()
+
+
+        # check player touched mine
+        legs_index = Screen.get_legs_index()
+
+
+        # update variables and screen
+        # draw updated screen
 
 
 def handle_user_events():
@@ -34,3 +47,7 @@ def handle_user_events():
                 # pressed enter
                 # show the mines for 1 sec
                 pass
+
+
+
+
