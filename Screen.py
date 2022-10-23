@@ -2,6 +2,7 @@ import pygame
 import const
 import MineField
 import random
+import Soldier
 
 screen = pygame.display.set_mode((const.WINDOW_WIDTH, const.WINDOW_HEIGHT))
 screen.fill(const.BACKGROUND_COLOR)
@@ -39,8 +40,17 @@ def visualize_grid():
         pixel_x += const.SQUARE_SIZE
 
 
-def create_player():
-    pass
+def create_player(coordinates, player_png):
+    Soldier.player_pos_start()
+    conversion_to_coordinates(coordinates)
+    x, y = coordinates[0], coordinates[1]
+    screen.blit(player_png, (x, y))
+
+
+def conversion_to_coordinates(coordinates):
+    x, y = coordinates[0] * const.SQUARE_SIZE, coordinates[1] * const.SQUARE_SIZE
+    coordinates = (x, y)
+    return coordinates
 
 
 def object_draw():
