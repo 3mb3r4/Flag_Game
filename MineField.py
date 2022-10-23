@@ -41,4 +41,4 @@ def mine_indexes_list():
             if mine_grid[i][j] == const.MINE_VALUE:
                 pos = (j, i)
                 mines_indexes_list.append(pos)
-                
+
