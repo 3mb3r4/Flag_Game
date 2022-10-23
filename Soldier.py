@@ -3,10 +3,8 @@ import Screen
 import const
 
 
-# png file of soldier
-# (x,y) coordinates of the top left corner of Soldier
-# func to calculate legs and upper body positions
-# checks out of bounds
+# TODO: (x,y) coordinates of the top left corner of Soldier
+# TODO: func to calculate legs and upper body positions
 
 def player_pos_start():
     player_png = pygame.image.load("C:\\Users\\jbt\\PycharmProjects\\Flag_Game\\soldier.png")
