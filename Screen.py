@@ -16,7 +16,7 @@ def draw_random_bushes():
         index = (x, y)
         random_bushes_indexes.append(index)
     for bush in random_bushes_indexes:
-        x, y = bush
+        x, y = bush[0], bush[1]
         screen.blit(const.BUSH_PNG, (x, y))
 
 
@@ -55,6 +55,20 @@ def conversion_to_coordinates(coordinates):
 
 def object_draw():
     pass
+
+
+def draw_message(message):
+    font = pygame.font.SysFont(const.FONT_NAME, const.FONT_SIZE)
+    text_img = font.render(message, True, const.MESSAGE_COLOR)
+    screen.blit(text_img, const.MESSAGE_LOCATION)
+
+
+def draw_lose_message():
+    draw_message(const.LOSE_MESSAGE)
+
+
+def draw_win_message():
+    draw_message(const.WIN_MESSAGE)
 
 
 def draw_game(game_state):

@@ -26,6 +26,12 @@ MINE_PNG = pygame.image.load("mine.png")
 MINE_WIDTH = MINE_PNG.get_width()
 MINE_HEIGHT = MINE_PNG.get_height()
 
+FONT_NAME = "Calibri"
+FONT_SIZE = 50
+WIN_MESSAGE = "You win!"
+LOSE_MESSAGE = "You lose!"
+MESSAGE_LOCATION = (100, 100)
+MESSAGE_COLOR = (255,255,51)
 RUNNING_STATE = 0
 LOSE_STATE = 1
 WIN_STATE = 2
