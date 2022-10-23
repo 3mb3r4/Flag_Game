@@ -21,7 +21,7 @@ def create_random_mines():
     num_of_mines = 0
     while num_of_mines < 20:
         i = random.randint(0, const.NUM_SQUARES_HEIGHT - 1)
-        j = random.randint(0, const.NUM_SQUARES_WIDTH - 1)
+        j = random.randint(0, const.NUM_SQUARES_WIDTH - 4)
         if mine_grid[i][j] == const.EMPTY_VALUE:
             mine_grid[i][j] = const.MINE_VALUE
             num_of_mines += 1
