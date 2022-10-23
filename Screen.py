@@ -1,16 +1,17 @@
 import pygame
 import const
 import MineField
-
+import random
 
 screen = pygame.display.set_mode((const.WINDOW_WIDTH, const.WINDOW_HEIGHT))
 background_colour = (0, 128, 0)
 screen.fill(background_colour)
 
-def draw_bushes():
+def draw_random_bushes():
+    x = random.randint(1, 50)
+    y = random.randint(1, 25)
 
-
-def draw_mines_and_lines():
+def draw_mines():
     mine_img = pygame.image.load('mine.png')
     for item in MineField.mine_indexes_list():
         x , y = item
