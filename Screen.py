@@ -1,19 +1,23 @@
 import pygame
 
 WIDTH, HEIGHT = 1000, 500
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-background_colour = (0, 128, 0)
-screen.fill(background_colour)
+def draw_game():
+    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    background_colour = (0, 128, 0)
+    screen.fill(background_colour)
 
 
-def pygame_screen():
-    pygame.display.flip()
-    running = True
+def draw_bushes(indexes):
+    for item in indexes
+        for coordinates in field:
+            if coordinates == item:
 
-    while running:
 
-        for event in pygame.event.get():
 
-            if event.type == pygame.QUIT:
-                running = False
-    pygame.quit()
+def draw_mines_and_lines():
+
+def object_draw():
+
+
+
+
