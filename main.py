@@ -8,8 +8,9 @@ import const
 
 game = {"run": True,
         "mines_pos": [],
+        "player_indexes": [],
+        "flag_indexes": [],
         "movements_keys": [pygame.K_UP, pygame.K_DOWN, pygame.K_RIGHT, pygame.K_LEFT],
-        "flag_indexes": Screen.get_flag_indexes,
         "game_state": const.RUNNING_STATE}
 
 
@@ -21,7 +22,7 @@ def main():
     player_png, player_pos = Soldier.player_pos_start()
 
     while game["run"]:
-        handle_user_events()
+        handle_user_events(player_png)
 
         # check player touches flag
         player_index = Screen.get_player_index()
@@ -39,7 +40,7 @@ def main():
         # draw updated screen
 
 
-def handle_user_events():
+def handle_user_events(player_png):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game["run"] = False
@@ -50,7 +51,7 @@ def handle_user_events():
             key_pressed = event.key  # get key type
             player_pos = Screen.get_player_index
             if key_pressed in game["movements_keys"]:
-                Soldier.movement(key_pressed, player_pos)
+                Soldier.movement(key_pressed, player_pos, player_png)
 
             elif event.key == pygame.K_RETURN:
                 game["game_state"] = const.ENTER_STATE

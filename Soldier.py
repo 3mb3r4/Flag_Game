@@ -28,7 +28,7 @@ def player_touches_mine(player_legs_indexes, mines_indexes):
 
 
 def movement(key_pressed, player_index, player_png):
-    upper_left_corner = Screen.upper_left_soldier_coordinates()
+    upper_left_corner = Screen.get_upper_left_soldier_coordinates()
     player_width = player_png.get_width()
     player_height = player_png.get_height()
 
@@ -51,3 +51,12 @@ def movement(key_pressed, player_index, player_png):
             for pos in player_index:
                 pos[1] -= 1
 
+
+def player_pos_in_matrix_list(start_pos):
+    player_pos_list = [start_pos]
+    for i in range(0, 2):
+        x = start_pos[0] + i
+        for j in range(0, 4):
+            y = start_pos[1] + j
+            player_pos_list.append((x, y))
+    return player_pos_list
