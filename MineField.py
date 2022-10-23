@@ -1,2 +1,10 @@
+import const
+import Soldier
+
 # saves flag and mines placements
-# cretes random placements of mines
+# creates random placements of mines
+
+
+mine_grid = []
+def mine_field():
+    pass
