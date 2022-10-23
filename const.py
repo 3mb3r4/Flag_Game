@@ -1,4 +1,5 @@
 import pygame
+
 # contestants file
 
 
@@ -13,16 +14,19 @@ EMPTY_VALUE = 0
 MINE_VALUE = 1
 MINES_BACKGROUND_COLOR = (24, 24, 24)
 # FLAG_MEASUREMENTS
-FlAG_PNG = pygame.image.load("soldier.png")
+FlAG_PNG = pygame.image.load("flag.png")
+FlAG_PNG = pygame.transform.scale(FlAG_PNG, (SQUARE_SIZE*4, SQUARE_SIZE*3))
 FLAG_WIDTH = FlAG_PNG.get_width()
 FLAG_HEIGHT = FlAG_PNG.get_height()
 FLAG_START_POS = (WINDOW_WIDTH - FLAG_WIDTH, WINDOW_HEIGHT - FLAG_HEIGHT)
 
 BUSH_PNG = pygame.image.load("grass.png")
+BUSH_PNG = pygame.transform.scale(BUSH_PNG, (SQUARE_SIZE*3, SQUARE_SIZE*2))
 BUSH_WIDTH = BUSH_PNG.get_width()
 BUSH_HEIGHT = BUSH_PNG.get_height()
 
 MINE_PNG = pygame.image.load("mine.png")
+MINE_PNG = pygame.transform.scale(MINE_PNG, (SQUARE_SIZE*3, SQUARE_SIZE*1))
 MINE_WIDTH = MINE_PNG.get_width()
 MINE_HEIGHT = MINE_PNG.get_height()
 
@@ -31,7 +35,7 @@ FONT_SIZE = 50
 WIN_MESSAGE = "You win!"
 LOSE_MESSAGE = "You lose!"
 MESSAGE_LOCATION = (100, 100)
-MESSAGE_COLOR = (255,255,51)
+MESSAGE_COLOR = (255, 255, 51)
 RUNNING_STATE = 0
 LOSE_STATE = 1
 WIN_STATE = 2

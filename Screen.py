@@ -8,14 +8,18 @@ screen = pygame.display.set_mode((const.WINDOW_WIDTH, const.WINDOW_HEIGHT))
 screen.fill(const.BACKGROUND_COLOR)
 
 
-def draw_random_bushes():
+def random_bushes_list():
     random_bushes_indexes = []
     for i in range(const.SQUARE_SIZE):
-        x = random.randint(0, const.NUM_SQUARES_WIDTH - const.BUSH_WIDTH)
-        y = random.randint(0, const.NUM_SQUARES_HEIGHT - const.BUSH_HEIGHT)
+        x = random.randint(0, const.WINDOW_WIDTH - const.BUSH_WIDTH)
+        y = random.randint(0, const.WINDOW_HEIGHT - const.BUSH_HEIGHT)
         index = (x, y)
         random_bushes_indexes.append(index)
-    for bush in random_bushes_indexes:
+    return random_bushes_indexes
+
+
+def draw_bushes(bushes_list):
+    for bush in bushes_list:
         x, y = bush[0], bush[1]
         screen.blit(const.BUSH_PNG, (x, y))
 
@@ -32,29 +36,27 @@ def visualize_grid():
     pixel_y = 0
     pixel_x_end = const.WINDOW_WIDTH
     pixel_y_end = const.WINDOW_HEIGHT
-    while pixel_y != const.WINDOW_HEIGHT + const.SQUARE_SIZE:
-        pygame.draw.line(screen, const.LINE_COLOR, (pixel_x, pixel_y), (pixel_x_end, pixel_y))
-        pixel_y += const.SQUARE_SIZE
-    while pixel_x != const.WINDOW_WIDTH + const.SQUARE_SIZE:
-        pygame.draw.line(screen, const.LINE_COLOR, (pixel_x, pixel_y), (pixel_x, pixel_y_end))
-        pixel_x += const.SQUARE_SIZE
+    for i in range(const.SQUARE_SIZE, pixel_y_end, const.SQUARE_SIZE):
+        point1 = (0, i)
+        point2 = (pixel_x_end, i)
+        pygame.draw.line(screen, const.LINE_COLOR, point1, point2)
+
+    for i in range(const.SQUARE_SIZE, pixel_x_end, const.SQUARE_SIZE):
+        point1 = (i, 0)
+        point2 = (i, pixel_y_end)
+        pygame.draw.line(screen, const.LINE_COLOR, point1, point2)
 
 
-def create_player(coordinates, player_png):
-    Soldier.player_pos_start()
+def draw_object(coordinates, png):
     conversion_to_coordinates(coordinates)
     x, y = coordinates[0], coordinates[1]
-    screen.blit(player_png, (x, y))
+    screen.blit(png, (x, y))
 
 
 def conversion_to_coordinates(coordinates):
     x, y = coordinates[0] * const.SQUARE_SIZE, coordinates[1] * const.SQUARE_SIZE
     coordinates = (x, y)
     return coordinates
-
-
-def object_draw():
-    pass
 
 
 def draw_message(message):
@@ -71,18 +73,22 @@ def draw_win_message():
     draw_message(const.WIN_MESSAGE)
 
 
-def draw_game(game_state):
+def draw_game(game_state, player_position, player_png, bushes_list):
     screen.fill(const.BACKGROUND_COLOR)
-    draw_random_bushes()
+    draw_object(player_position, player_png)
+    draw_object(const.FLAG_START_POS, const.FlAG_PNG)
+    draw_bushes(bushes_list)
+
     if game_state == const.ENTER_STATE:
         visualize_grid()
         draw_mines()
         pygame.time.delay(const.SECOND)
     elif game_state == const.WIN_STATE:
-        # draw win message for 3 sec
-        pass
+        draw_win_message()
+        pygame.time.delay(const.SECOND * 3)
+
     elif game_state == const.LOSE_STATE:
-        # draw lise state for 3 sec
-        pass
+        draw_lose_message()
+        pygame.time.delay(const.SECOND * 3)
 
     pygame.display.flip()
