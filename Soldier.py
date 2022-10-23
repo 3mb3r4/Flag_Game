@@ -1,10 +1,17 @@
 import pygame
+import Screen
 
 
 # png file of soldier
 # (x,y) coordinates of the top left corner of Soldier
 # func to calculate legs and upper body positions
 # checks out of bounds
+
+def player_pos_start():
+    player_png = pygame.image.load("C:\\Users\\jbt\\PycharmProjects\\Flag_Game\\soldier.png")
+    pos = (0, 0)
+    return player_png, pos
+
 
 def player_touches_flag(player_body_indexes, flag_indexes):
     parts_touching_flag = 0
@@ -25,7 +32,8 @@ def player_touches_mine(player_legs_indexes, mines_indexes):
 def movement(key_pressed, player_index):
     # TODO: handles out of bounds
     upper_left_corner = Screen.upper_left_soldier_coordinates()
-
+    player_width = Screen.get_player_width()
+    player_height = Screen.get_player_height()
     # handles movements
     if key_pressed == pygame.K_UP:
         for pos in player_index:
@@ -42,4 +50,3 @@ def movement(key_pressed, player_index):
     else:
         for pos in player_index:
             pos[1] -= 1
-

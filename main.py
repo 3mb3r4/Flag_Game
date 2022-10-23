@@ -1,5 +1,6 @@
 import pygame
 import MineField
+import Screen
 
 # handling pygame events
 
