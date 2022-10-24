@@ -99,6 +99,7 @@ def draw_game(game_state, player_position, player_png, bushes_list):
         draw_mines()
         draw_object(player_x_y, const.NIGHT_SOLDIER_PNG)
         wait_time = 1
+
     elif game_state == const.WIN_STATE:
         current_time = pygame.time.get_ticks()
         pause_time = current_time + const.SECOND * 5
