@@ -23,7 +23,9 @@ def create_random_mines(flag_indexes):
         j = random.randint(0, const.NUM_SQUARES_WIDTH - 4)
         # to make sure mines don't spawn outside screen
         if mine_grid[i][j] == const.EMPTY_VALUE and (i, j) not in const.DONT_SPAWN_MINES_LIST \
-                and (i, j) not in flag_indexes:  # to make sure a win isn't impossible
+                and (i, j) not in flag_indexes:
+            # to make sure a win isn't impossible
+            # mines won't generate in the player start pos, and inside the flag indexes
             mine_grid[i][j] = const.MINE_VALUE
             num_of_mines += 1
 
