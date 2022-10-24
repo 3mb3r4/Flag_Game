@@ -3,7 +3,6 @@ import MineField
 import Screen
 import Soldier
 import const
-import time
 
 # handling pygame events
 
