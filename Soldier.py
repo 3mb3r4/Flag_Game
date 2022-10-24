@@ -15,7 +15,7 @@ def player_touches_flag(player_body_indexes, flag_indexes):
     for position in player_body_indexes:
         if position in flag_indexes:
             parts_touching_flag += 1
-    return parts_touching_flag >= 3
+    return parts_touching_flag >= 2
 
 
 def player_touches_mine(player_legs_indexes, mines_indexes):
