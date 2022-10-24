@@ -75,14 +75,13 @@ def draw_side_message():
     font = pygame.font.SysFont(const.FONT_NAME, const.SIDE_MESSAGE_FONT_SIZE)
     text_img = font.render(const.SIDE_MESSAGE, True, const.SIDE_MESSAGE_COLOR)
     screen.blit(text_img, const.SIDE_MESSAGE_LOCATION)
-    pygame.display.flip()
-
 
 def draw_game(game_state, player_position, player_png, bushes_list):
     screen.fill(const.BACKGROUND_COLOR)
     draw_object(player_position, player_png)
     draw_object(const.FLAG_START_POS, const.FlAG_PNG)
     draw_bushes(bushes_list)
+    draw_side_message()
 
     if game_state == const.ENTER_STATE:
         visualize_grid()
