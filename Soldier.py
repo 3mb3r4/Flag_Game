@@ -29,11 +29,11 @@ def player_touches_mine(player_legs_indexes, mines_indexes):
 def movement_by_direction(key_pressed, player_indexes):
     if key_pressed == pygame.K_UP:
         for pos in player_indexes:
-            pos[1] += 1
+            pos[1] -= 1
 
     elif key_pressed == pygame.K_DOWN:
         for pos in player_indexes:
-            pos[1] -= 1
+            pos[1] += 1
 
     elif key_pressed == pygame.K_RIGHT:
         for pos in player_indexes:
