@@ -43,6 +43,8 @@ def main():
         # update variables and screen
         # draw updated screen
         Screen.draw_game(game["game_state"], game["player_indexes"][0], player_png, game["bushes_list"])
+        if game["game_state"] == const.ENTER_STATE:
+            game["game_state"] = const.RUNNING_STATE
 
 
 def handle_user_events(player_png):
