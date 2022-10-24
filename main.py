@@ -12,7 +12,8 @@ game = {"run": True,
         "flag_indexes": [],
         "bushes_list": Screen.random_bushes_list(),
         "movements_keys": [pygame.K_UP, pygame.K_DOWN, pygame.K_RIGHT, pygame.K_LEFT],
-        "game_state": const.RUNNING_STATE}
+        "game_state": const.RUNNING_STATE,
+        }
 
 
 def main():
@@ -45,6 +46,7 @@ def main():
         # update variables and screen
         # draw updated screen
         Screen.draw_game(game["game_state"], game["player_indexes"][0], player_png, game["bushes_list"])
+
         if game["game_state"] == const.ENTER_STATE:
             game["game_state"] = const.RUNNING_STATE
 
@@ -58,11 +60,10 @@ def handle_user_events(player_png):
             # means a key was pressed
             # make sure solider isn't out of bounds and then initiate movements
             key_pressed = event.key  # get key type
-            if key_pressed in game["movements_keys"]:
-                Soldier.movement(key_pressed, game["player_indexes"], player_png)
-
-            elif event.key == pygame.K_RETURN:
+            if event.key == pygame.K_RETURN:
                 game["game_state"] = const.ENTER_STATE
+            elif key_pressed in game["movements_keys"]:
+                Soldier.movement(key_pressed, game["player_indexes"], player_png)
 
 
 if __name__ == "__main__":
