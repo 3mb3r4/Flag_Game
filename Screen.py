@@ -10,7 +10,7 @@ screen = pygame.display.set_mode((const.WINDOW_WIDTH, const.WINDOW_HEIGHT))  # t
 def random_bushes_list():  # function to generate random bush indexes.
     random_bushes_indexes = []
     for i in range(const.SQUARE_SIZE):
-        x = random.randint(0, const.WINDOW_WIDTH - const.BUSH_WIDTH)  # so the bush wont be generated outside of border
+        x = random.randint(0, const.WINDOW_WIDTH - const.BUSH_WIDTH)  # so the bush won't be generated outside of border
         y = random.randint(0, const.WINDOW_HEIGHT - const.BUSH_HEIGHT)
         index = (x, y)
         random_bushes_indexes.append(index)
