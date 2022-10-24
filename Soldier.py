@@ -5,7 +5,7 @@ import const
 
 def player_pos_start():
     player_png = pygame.image.load("soldier.png")
-    player_png = pygame.transform.scale(player_png, (const.SQUARE_SIZE * 2, const.SQUARE_SIZE * 4))
+    player_png = pygame.transform.scale(player_png, (const.SQUARE_SIZE * 4, const.SQUARE_SIZE * 4))
     pos = [0, 0]
     return player_png, pos
 

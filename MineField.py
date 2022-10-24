@@ -1,3 +1,4 @@
+import Screen
 import const
 import Soldier
 import random
@@ -39,6 +40,26 @@ def mine_indexes_list():
     for i in range(len(mine_grid)):
         for j in range(len(mine_grid[i])):
             if mine_grid[i][j] == const.MINE_VALUE:
-                pos = (j, i)
+                pos = [j, i]
                 mines_indexes_list.append(pos)
     return mines_indexes_list
+
+
+def get_flag_index(flag_start_pos):
+    start_index = Screen.conversion_to_position(flag_start_pos)
+    start_index = [start_index[0], start_index[1] - 1]
+    flag_indexes = [start_index]
+
+    for i in range(3):
+        for j in range(4):
+            pos = [start_index[0] + i, start_index[1]]
+    # x = start_index[0]
+    # for i in range(4):
+    #     for j in range(3):
+    #         y = start_index[1] + j
+    #         pos = [x, y]
+    #         if pos == start_index:
+    #             continue
+    #         flag_indexes.append(pos)
+    #     x = start_index[0] + 1
+    # return flag_indexes

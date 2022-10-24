@@ -20,6 +20,8 @@ def main():
     MineField.make_empty_field()
     MineField.create_random_mines()
     game["mines_pos"] = MineField.mine_indexes_list()
+    game["flag_indexes"] = MineField.get_flag_index(const.FLAG_START_POS)
+
     player_png, player_start_pos = Soldier.player_pos_start()
 
     while game["run"]:
