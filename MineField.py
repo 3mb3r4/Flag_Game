@@ -1,6 +1,5 @@
 import Screen
 import const
-import Soldier
 import random
 
 # saves flag and mines placements
