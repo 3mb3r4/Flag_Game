@@ -2,7 +2,6 @@ import pygame
 import const
 import MineField
 import random
-import Soldier
 
 screen = pygame.display.set_mode((const.WINDOW_WIDTH, const.WINDOW_HEIGHT))
 screen.fill(const.BACKGROUND_COLOR)
@@ -99,11 +98,19 @@ def draw_game(game_state, player_position, player_png, bushes_list):
         draw_object(player_x_y, const.NIGHT_SOLDIER_PNG)
         pygame.time.delay(const.SECOND)
     elif game_state == const.WIN_STATE:
-        draw_win_message()
+        current_time = pygame.time.get_ticks()
+        pause_time = current_time + 7000
+        if pause_time > current_time:
+            draw_win_message()
+        pygame.display.update()
         pygame.time.delay(const.SECOND * 3)
 
     elif game_state == const.LOSE_STATE:
-        draw_lose_message()
+        current_time = pygame.time.get_ticks()
+        pause_time = current_time + 7000
+        if pause_time > current_time:
+            draw_lose_message()
+        pygame.display.update()
         pygame.time.delay(const.SECOND * 3)
 
     pygame.display.flip()
