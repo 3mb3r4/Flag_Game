@@ -15,10 +15,13 @@ MINE_VALUE = 1
 MINES_BACKGROUND_COLOR = (24, 24, 24)
 # FLAG_MEASUREMENTS
 FlAG_PNG = pygame.image.load("flag.png")
-FlAG_PNG = pygame.transform.scale(FlAG_PNG, (SQUARE_SIZE*4, SQUARE_SIZE*3))
+FlAG_PNG = pygame.transform.scale(FlAG_PNG, (SQUARE_SIZE*4, SQUARE_SIZE*4))
 FLAG_WIDTH = FlAG_PNG.get_width()
 FLAG_HEIGHT = FlAG_PNG.get_height()
 FLAG_START_POS = (WINDOW_WIDTH - FLAG_WIDTH, WINDOW_HEIGHT - FLAG_HEIGHT)
+
+NIGHT_SOLDIER_PNG = pygame.image.load('soldier_nigth.png')
+NIGHT_SOLDIER_PNG = pygame.transform.scale(NIGHT_SOLDIER_PNG, (SQUARE_SIZE * 4, SQUARE_SIZE * 4))
 
 BUSH_PNG = pygame.image.load("grass.png")
 BUSH_PNG = pygame.transform.scale(BUSH_PNG, (SQUARE_SIZE*3, SQUARE_SIZE*2))

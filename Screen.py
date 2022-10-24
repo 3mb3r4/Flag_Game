@@ -96,7 +96,7 @@ def draw_game(game_state, player_position, player_png, bushes_list):
     if game_state == const.ENTER_STATE:
         visualize_grid()
         draw_mines()
-        draw_object(player_x_y, player_png)
+        draw_object(player_x_y, const.NIGHT_SOLDIER_PNG)
         pygame.time.delay(const.SECOND)
     elif game_state == const.WIN_STATE:
         draw_win_message()
