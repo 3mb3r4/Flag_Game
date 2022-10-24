@@ -49,7 +49,6 @@ def main():
         Screen.draw_game(game["game_state"], game["player_indexes"][0], player_png, game["bushes_list"])
 
         if game["game_state"] == const.ENTER_STATE:
-            pygame.time.delay(const.SECOND)
             game["game_state"] = const.RUNNING_STATE
 
 
