@@ -19,10 +19,11 @@ def make_empty_field():
 
 def create_random_mines():
     num_of_mines = 0
+
     while num_of_mines < 20:
         i = random.randint(0, const.NUM_SQUARES_HEIGHT - 1)
         j = random.randint(0, const.NUM_SQUARES_WIDTH - 4)
-        if mine_grid[i][j] == const.EMPTY_VALUE:
+        if mine_grid[i][j] == const.EMPTY_VALUE and (i, j) not in const.DONT_SPAWN_MINES_LIST:
             mine_grid[i][j] = const.MINE_VALUE
             num_of_mines += 1
 

@@ -29,7 +29,7 @@ def main():
     while game["run"]:
         handle_user_events(player_png)
 
-        body_indexes = game["player_indexes"][:6]
+        body_indexes = game["player_indexes"][:3]
         # check player touches flag
         if Soldier.player_touches_flag(body_indexes, game["flag_indexes"]):
             # game win
