@@ -58,7 +58,7 @@ def conversion_to_coordinates(coordinates):
 
 
 def conversion_to_position(indexes):
-    x, y = indexes[0] / const.SQUARE_SIZE, indexes[1] / const.SQUARE_SIZE
+    x, y = indexes[0] // const.SQUARE_SIZE, indexes[1] // const.SQUARE_SIZE
     indexes = x, y
     return indexes
 
@@ -79,16 +79,18 @@ def draw_win_message():
 
 def draw_side_message():
     font = pygame.font.SysFont(const.FONT_NAME, const.SIDE_MESSAGE_FONT_SIZE)
-    text_img = font.render(const.SIDE_MESSAGE, True, const.SIDE_MESSAGE_COLOR)
-    screen.blit(text_img, const.SIDE_MESSAGE_LOCATION)
+    text_1_img = font.render(const.SIDE_MESSAGE_1, True, const.SIDE_MESSAGE_COLOR)
+    screen.blit(text_1_img, const.SIDE_MESSAGE_1_LOCATION)
+    text_2_img = font.render(const.SIDE_MESSAGE_2, True, const.SIDE_MESSAGE_COLOR)
+    screen.blit(text_2_img, const.SIDE_MESSAGE_2_LOCATION)
 
 
 def draw_game(game_state, player_position, player_png, bushes_list):
     screen.fill(const.BACKGROUND_COLOR)
     player_x_y = conversion_to_coordinates(player_position)
-    draw_object(player_x_y, player_png)
-    draw_object(const.FLAG_START_POS, const.FlAG_PNG)
     draw_bushes(bushes_list)
+    draw_object(const.FLAG_START_POS, const.FlAG_PNG)
+    draw_object(player_x_y, player_png)
     draw_side_message()
 
     if game_state == const.ENTER_STATE:
