@@ -78,7 +78,8 @@ def draw_side_message():
 
 def draw_game(game_state, player_position, player_png, bushes_list):
     screen.fill(const.BACKGROUND_COLOR)
-    draw_object(player_position, player_png)
+    player_x_y = conversion_to_coordinates(player_position)
+    draw_object(player_x_y, player_png)
     draw_object(const.FLAG_START_POS, const.FlAG_PNG)
     draw_bushes(bushes_list)
     draw_side_message()
@@ -86,7 +87,7 @@ def draw_game(game_state, player_position, player_png, bushes_list):
     if game_state == const.ENTER_STATE:
         visualize_grid()
         draw_mines()
-        draw_object(player_position, player_png)
+        draw_object(player_x_y, player_png)
         pygame.time.delay(const.SECOND)
     elif game_state == const.WIN_STATE:
         draw_win_message()
