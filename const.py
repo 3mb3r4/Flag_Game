@@ -1,8 +1,5 @@
 import pygame
 
-# contestants file
-
-
 SQUARE_SIZE = 20
 NUM_SQUARES_WIDTH = 50
 NUM_SQUARES_HEIGHT = 25
@@ -53,3 +50,4 @@ ENTER_STATE = 3
 SECOND = 1000
 
 DONT_SPAWN_MINES_LIST = [(0, 3)]  # so it won't spawn a mine in the player start location, which will cause instant lose
+NUM_OF_MINES = 20
