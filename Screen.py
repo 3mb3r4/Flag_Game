@@ -3,6 +3,7 @@ import const
 import MineField
 import random
 
+pygame.display.set_caption('The Flag')
 screen = pygame.display.set_mode((const.WINDOW_WIDTH, const.WINDOW_HEIGHT))
 screen.fill(const.BACKGROUND_COLOR)
 
@@ -77,7 +78,7 @@ def draw_win_message():
 
 
 def draw_side_message():
-    font = pygame.font.SysFont(const.FONT_NAME, const.SIDE_MESSAGE_FONT_SIZE)
+    font = pygame.font.SysFont(const.FONT_NAME, const.SIDE_MESSAGE_FONT_SIZE, bold=True)
     text_1_img = font.render(const.SIDE_MESSAGE_1, True, const.SIDE_MESSAGE_COLOR)
     screen.blit(text_1_img, const.SIDE_MESSAGE_1_LOCATION)
     text_2_img = font.render(const.SIDE_MESSAGE_2, True, const.SIDE_MESSAGE_COLOR)
