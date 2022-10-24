@@ -32,8 +32,6 @@ def draw_mines():
 
 def visualize_grid():
     screen.fill(const.MINES_BACKGROUND_COLOR)
-    pixel_x = 0
-    pixel_y = 0
     pixel_x_end = const.WINDOW_WIDTH
     pixel_y_end = const.WINDOW_HEIGHT
     for i in range(const.SQUARE_SIZE, pixel_y_end, const.SQUARE_SIZE):
@@ -89,6 +87,7 @@ def draw_game(game_state, player_position, player_png, bushes_list):
     if game_state == const.ENTER_STATE:
         visualize_grid()
         draw_mines()
+        draw_object(player_position, player_png)
         pygame.time.delay(const.SECOND)
     elif game_state == const.WIN_STATE:
         draw_win_message()
