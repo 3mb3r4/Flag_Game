@@ -2,7 +2,6 @@ import pygame
 import const
 import MineField
 import random
-import time
 
 screen = pygame.display.set_mode((const.WINDOW_WIDTH, const.WINDOW_HEIGHT))
 screen.fill(const.BACKGROUND_COLOR)
@@ -93,11 +92,13 @@ def draw_game(game_state, player_position, player_png, bushes_list):
     draw_object(player_x_y, player_png)
     draw_side_message()
     wait_time = 0
+    pygame.event.set_allowed([pygame.KEYDOWN, pygame.KEYUP])
 
     if game_state == const.ENTER_STATE:
         visualize_grid()
         draw_mines()
         draw_object(player_x_y, const.NIGHT_SOLDIER_PNG)
+        pygame.event.set_blocked([pygame.KEYDOWN, pygame.KEYUP])
         wait_time = 1
 
     elif game_state == const.WIN_STATE:
