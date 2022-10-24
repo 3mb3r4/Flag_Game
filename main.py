@@ -23,10 +23,10 @@ def main():
     game["flag_indexes"] = MineField.get_flag_index(const.FLAG_START_POS)
 
     player_png, player_start_pos = Soldier.player_pos_start()
+    game["player_indexes"] = Soldier.player_pos_in_matrix_list(player_start_pos)
 
     while game["run"]:
         handle_user_events(player_png)
-        game["player_indexes"] = Soldier.player_pos_in_matrix_list(player_start_pos)
 
         body_indexes = game["player_indexes"][:6]
         # check player touches flag
@@ -58,9 +58,8 @@ def handle_user_events(player_png):
             # means a key was pressed
             # make sure solider isn't out of bounds and then initiate movements
             key_pressed = event.key  # get key type
-            player_pos = game["player_indexes"]
             if key_pressed in game["movements_keys"]:
-                Soldier.movement(key_pressed, player_pos, player_png)
+                Soldier.movement(key_pressed, game["player_indexes"], player_png)
 
             elif event.key == pygame.K_RETURN:
                 game["game_state"] = const.ENTER_STATE
