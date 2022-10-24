@@ -57,6 +57,12 @@ def conversion_to_coordinates(coordinates):
     return coordinates
 
 
+def conversion_to_position(indexes):
+    x, y = indexes[0] / const.SQUARE_SIZE, indexes[1] / const.SQUARE_SIZE
+    indexes = x, y
+    return indexes
+
+
 def draw_message(message):
     font = pygame.font.SysFont(const.FONT_NAME, const.FONT_SIZE)
     text_img = font.render(message, True, const.MESSAGE_COLOR)
@@ -75,6 +81,7 @@ def draw_side_message():
     font = pygame.font.SysFont(const.FONT_NAME, const.SIDE_MESSAGE_FONT_SIZE)
     text_img = font.render(const.SIDE_MESSAGE, True, const.SIDE_MESSAGE_COLOR)
     screen.blit(text_img, const.SIDE_MESSAGE_LOCATION)
+
 
 def draw_game(game_state, player_position, player_png, bushes_list):
     screen.fill(const.BACKGROUND_COLOR)

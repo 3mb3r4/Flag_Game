@@ -30,11 +30,10 @@ MINE_PNG = pygame.transform.scale(MINE_PNG, (SQUARE_SIZE*3, SQUARE_SIZE*1))
 MINE_WIDTH = MINE_PNG.get_width()
 MINE_HEIGHT = MINE_PNG.get_height()
 
-SIDE_MESSAGE = "Welcome to The Flag Game." \
-               "Have Fun!"
+SIDE_MESSAGE = "Welcome to The Flag Game.\nHave Fun!"
 SIDE_MESSAGE_LOCATION = (60, 40)
 SIDE_MESSAGE_COLOR = (255,255,255)
-SIDE_MESSAGE_FONT_SIZE = 30
+SIDE_MESSAGE_FONT_SIZE = 20
 FONT_NAME = "Calibri"
 FONT_SIZE = 50
 WIN_MESSAGE = "You win!"
