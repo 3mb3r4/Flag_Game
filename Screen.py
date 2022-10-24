@@ -103,14 +103,14 @@ def draw_game(game_state, player_position, player_png, bushes_list):  # draws th
 
     elif game_state == const.WIN_STATE:  # responsible for the state of the game when player wins
         current_time = pygame.time.get_ticks()
-        pause_time = current_time + const.SECOND * 5
+        pause_time = current_time + const.SECOND * 3
         if pause_time > current_time:  # to make the message stay longer
             draw_win_message()
         wait_time = 3
 
     elif game_state == const.LOSE_STATE:  # responsible for the state of the game when player loses
         current_time = pygame.time.get_ticks()
-        pause_time = current_time + const.SECOND * 5
+        pause_time = current_time + const.SECOND * 3
         if pause_time > current_time:  # to make the message stay longer
             draw_lose_message()
         wait_time = 3
